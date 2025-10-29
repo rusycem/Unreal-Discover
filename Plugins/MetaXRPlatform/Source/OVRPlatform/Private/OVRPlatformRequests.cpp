@@ -1,22 +1,4 @@
-/*
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- * All rights reserved.
- *
- * Licensed under the Oculus SDK License Agreement (the "License");
- * you may not use the Oculus SDK except in compliance with the License,
- * which is provided at the time of installation or download, or which
- * otherwise accompanies this software in either electronic or hard copy form.
- *
- * You may obtain a copy of the License at
- *
- * https://developer.oculus.com/licenses/oculussdk/
- *
- * Unless required by applicable law or agreed to in writing, the Oculus SDK
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
@@ -3065,6 +3047,46 @@ void UOvrRequestsBlueprintLibrary::Party_GetCurrent(
 }
 
 // ----------------------------------------------------------------------
+// PushNotification
+
+void UOvrRequestsBlueprintLibrary::PushNotification_Register(
+    // Context
+    UObject* WorldContextObject,
+    EOvrRequestOutputPins& OutExecs,
+    FLatentActionInfo LatentInfo,
+    // Output
+    FOvrPushNotificationResult& PushNotificationResult,
+    FString& ErrorMsg)
+{
+    if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
+    {
+        OvrPlatformAddNewActionWithPreemption(
+            World,
+            LatentInfo.CallbackTarget, LatentInfo.UUID,
+            new FOvrRequestLatentAction(LatentInfo, OutExecs, ErrorMsg,
+                // Request Generator
+                []()->ovrRequest
+                {
+                    ovrRequest RequestID = ovr_PushNotification_Register();
+
+                    return RequestID;
+                },
+                // Response Processor
+                [&PushNotificationResult](TOvrMessageHandlePtr MessagePtr, bool bIsError)->void
+                {
+                    if (bIsError)
+                    {
+                        PushNotificationResult.Clear();
+                    }
+                    else
+                    {
+                        PushNotificationResult.Update(ovr_Message_GetPushNotificationResult(*MessagePtr), MessagePtr);
+                    }
+                }));
+    }
+}
+
+// ----------------------------------------------------------------------
 // RichPresence
 
 void UOvrRequestsBlueprintLibrary::RichPresence_Clear(
@@ -3280,6 +3302,51 @@ void UOvrRequestsBlueprintLibrary::User_GetBlockedUsers(
     }
 }
 
+void UOvrRequestsBlueprintLibrary::User_GetLinkedAccounts(
+    // Context
+    UObject* WorldContextObject,
+    EOvrRequestOutputPins& OutExecs,
+    FLatentActionInfo LatentInfo,
+    // Input
+    FOvrUserOptions UserOptions,
+    // Output
+    TArray<FOvrLinkedAccount>& LinkedAccountArray,
+    FString& ErrorMsg)
+{
+    if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
+    {
+        OvrPlatformAddNewActionWithPreemption(
+            World,
+            LatentInfo.CallbackTarget, LatentInfo.UUID,
+            new FOvrRequestLatentAction(LatentInfo, OutExecs, ErrorMsg,
+                // Request Generator
+                [UserOptions]()->ovrRequest
+                {
+                    ovrRequest RequestID = ovr_User_GetLinkedAccounts(FOvrUserOptionsConverter(UserOptions));
+
+                    return RequestID;
+                },
+                // Response Processor
+                [&LinkedAccountArray](TOvrMessageHandlePtr MessagePtr, bool bIsError)->void
+                {
+                    if (bIsError)
+                    {
+                        LinkedAccountArray.Empty();
+                    }
+                    else
+                    {
+                        ovrLinkedAccountArrayHandle LinkedAccountArrayHandle = ovr_Message_GetLinkedAccountArray(*MessagePtr);
+                        size_t LinkedAccountArraySize = ovr_LinkedAccountArray_GetSize(LinkedAccountArrayHandle);
+                        LinkedAccountArray.Empty(LinkedAccountArraySize);
+                        for (size_t Index = 0; Index < LinkedAccountArraySize; ++Index)
+                        {
+                            LinkedAccountArray.Add(FOvrLinkedAccount(ovr_LinkedAccountArray_GetElement(LinkedAccountArrayHandle, Index), MessagePtr));
+                        }
+                    }
+                }));
+    }
+}
+
 void UOvrRequestsBlueprintLibrary::User_GetLoggedInUser(
     // Context
     UObject* WorldContextObject,
@@ -3349,6 +3416,43 @@ void UOvrRequestsBlueprintLibrary::User_GetLoggedInUserFriends(
                     else
                     {
                         UserPages.Update(ovr_Message_GetUserArray(*MessagePtr), MessagePtr);
+                    }
+                }));
+    }
+}
+
+void UOvrRequestsBlueprintLibrary::User_GetLoggedInUserManagedInfo(
+    // Context
+    UObject* WorldContextObject,
+    EOvrRequestOutputPins& OutExecs,
+    FLatentActionInfo LatentInfo,
+    // Output
+    FOvrUser& User,
+    FString& ErrorMsg)
+{
+    if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
+    {
+        OvrPlatformAddNewActionWithPreemption(
+            World,
+            LatentInfo.CallbackTarget, LatentInfo.UUID,
+            new FOvrRequestLatentAction(LatentInfo, OutExecs, ErrorMsg,
+                // Request Generator
+                []()->ovrRequest
+                {
+                    ovrRequest RequestID = ovr_User_GetLoggedInUserManagedInfo();
+
+                    return RequestID;
+                },
+                // Response Processor
+                [&User](TOvrMessageHandlePtr MessagePtr, bool bIsError)->void
+                {
+                    if (bIsError)
+                    {
+                        User.Clear();
+                    }
+                    else
+                    {
+                        User.Update(ovr_Message_GetUser(*MessagePtr), MessagePtr);
                     }
                 }));
     }

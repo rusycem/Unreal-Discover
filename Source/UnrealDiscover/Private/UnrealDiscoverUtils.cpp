@@ -2,10 +2,10 @@
 
 #include "UnrealDiscoverUtils.h"
 
-#include "OculusXRHMD/Private/OculusXRSimulator.h"
+#include "OculusXRHMD/Private/OculusXRHMDModule.h"
 
 // gets whether the simulator is active.
 const bool UUnrealDiscoverUtils::IsSimulatorActive()
 {
-	return FMetaXRSimulator::Get().IsSimulatorActivated();
+	return FOculusXRHMDModule::IsSimulatorActivated();
 }

@@ -1,5 +1,6 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
+using System.IO;
 using UnrealBuildTool;
 
 public class UnrealDiscover : ModuleRules
@@ -35,9 +36,10 @@ public class UnrealDiscover : ModuleRules
 				"OnlineSubsystemUtils",
 				"EOSVoiceChat",
 				"OculusUtils",
+				"OVRPluginXR",
 			});
 
-		PrivateIncludePaths.AddRange(new string[] { "OculusXRHMD/Private" });
+		PrivateIncludePaths.AddRange(new string[] { Path.Combine(GetModuleDirectory("OculusXRHMD"), "Private") });
     }
 }
 

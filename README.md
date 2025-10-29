@@ -47,7 +47,7 @@ The following is required to test this project within Unreal Engine:
 
 ### Required minimal version
 
-This version requires the minimum version of the Meta XR Plugin to be 1.109.0
+This version requires the minimum version of the Meta XR Plugin to be 1.109.0 (Version 77.0)
 
 ### Oculus Unreal fork
 
