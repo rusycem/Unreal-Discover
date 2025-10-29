@@ -511,8 +511,8 @@ void UEOSSubsystem::OnSessionEndedInternal(FName SessionName, bool bWasSuccessfu
 
 void UEOSSubsystem::OnSessionSettingsUpdatedInternal(FName SessionName, const FOnlineSessionSettings& SessionSettings)
 {
-	auto IsAdvertisingStr = SessionSettings.bShouldAdvertise ? "IS advertising" : "NOT advertising";
-	const FString Msg = FString::Printf(TEXT("[UEOSSubsystem] Updated Session Settings. New Advertisement value: %s"), IsAdvertisingStr);
+	const FString IsAdvertisingStr = SessionSettings.bShouldAdvertise ? TEXT("IS advertising") : TEXT("NOT advertising");
+	const FString Msg = FString::Printf(TEXT("[UEOSSubsystem] Updated Session Settings. New Advertisement value: %s"), *IsAdvertisingStr);
 	LogEntry(Msg, false);
 }
 
