@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using UnrealBuildTool;
 using System.IO;
