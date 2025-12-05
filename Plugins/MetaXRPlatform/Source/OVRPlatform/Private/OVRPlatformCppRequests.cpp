@@ -5,6 +5,7 @@
 #include "OVRPlatformCppRequests.h"
 #include "OVRPlatformRequestsConverters.h"
 #include "OVRPlatformOptionsConverters.h"
+#include "OVRPlatformEngineTelemetry.h"
 
 #include "OVRPlatformSubsystem.h"
 #include "Engine/GameInstance.h"
@@ -17,6 +18,7 @@ void OvrPlatform_AbuseReport_ReportRequestHandled(
     EOvrReportRequestResponse Response,
     OvrPlatform_AbuseReport_ReportRequestHandled_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AbuseReport_ReportRequestHandled_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -45,6 +47,7 @@ void OvrPlatform_Achievements_AddCount(
     int64 Count,
     OvrPlatform_Achievements_AddCount_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_AddCount_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -75,6 +78,7 @@ void OvrPlatform_Achievements_AddFields(
     FString Fields,
     OvrPlatform_Achievements_AddFields_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_AddFields_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -103,6 +107,7 @@ void OvrPlatform_Achievements_GetAllDefinitions(
     UGameInstance* GameInstance,
     OvrPlatform_Achievements_GetAllDefinitions_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetAllDefinitions_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -131,6 +136,7 @@ void OvrPlatform_Achievements_GetAllProgress(
     UGameInstance* GameInstance,
     OvrPlatform_Achievements_GetAllProgress_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetAllProgress_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -160,6 +166,7 @@ void OvrPlatform_Achievements_GetDefinitionsByName(
     TArray<FString> Names,
     OvrPlatform_Achievements_GetDefinitionsByName_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetDefinitionsByName_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -189,6 +196,7 @@ void OvrPlatform_Achievements_GetProgressByName(
     TArray<FString> Names,
     OvrPlatform_Achievements_GetProgressByName_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetProgressByName_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -218,6 +226,7 @@ void OvrPlatform_Achievements_Unlock(
     FString Name,
     OvrPlatform_Achievements_Unlock_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_Unlock_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -249,6 +258,7 @@ void OvrPlatform_Application_CancelAppDownload(
     UGameInstance* GameInstance,
     OvrPlatform_Application_CancelAppDownload_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_CancelAppDownload_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -277,6 +287,7 @@ void OvrPlatform_Application_CheckAppDownloadProgress(
     UGameInstance* GameInstance,
     OvrPlatform_Application_CheckAppDownloadProgress_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_CheckAppDownloadProgress_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -305,6 +316,7 @@ void OvrPlatform_Application_GetVersion(
     UGameInstance* GameInstance,
     OvrPlatform_Application_GetVersion_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_GetVersion_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -334,6 +346,7 @@ void OvrPlatform_Application_InstallAppUpdateAndRelaunch(
     FOvrApplicationOptions DeeplinkOptions,
     OvrPlatform_Application_InstallAppUpdateAndRelaunch_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_InstallAppUpdateAndRelaunch_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -364,6 +377,7 @@ void OvrPlatform_Application_LaunchOtherApp(
     FOvrApplicationOptions DeeplinkOptions,
     OvrPlatform_Application_LaunchOtherApp_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_LaunchOtherApp_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -392,6 +406,7 @@ void OvrPlatform_Application_StartAppDownload(
     UGameInstance* GameInstance,
     OvrPlatform_Application_StartAppDownload_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_StartAppDownload_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -427,6 +442,7 @@ void OvrPlatform_AssetFile_Delete(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_Delete_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_Delete_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -456,6 +472,7 @@ void OvrPlatform_AssetFile_DeleteById(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_DeleteById_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DeleteById_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -485,6 +502,7 @@ void OvrPlatform_AssetFile_DeleteByName(
     FString AssetFileName,
     OvrPlatform_AssetFile_DeleteByName_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DeleteByName_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -514,6 +532,7 @@ void OvrPlatform_AssetFile_Download(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_Download_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_Download_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -543,6 +562,7 @@ void OvrPlatform_AssetFile_DownloadById(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_DownloadById_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadById_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -572,6 +592,7 @@ void OvrPlatform_AssetFile_DownloadByName(
     FString AssetFileName,
     OvrPlatform_AssetFile_DownloadByName_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadByName_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -601,6 +622,7 @@ void OvrPlatform_AssetFile_DownloadCancel(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_DownloadCancel_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadCancel_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -630,6 +652,7 @@ void OvrPlatform_AssetFile_DownloadCancelById(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_DownloadCancelById_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadCancelById_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -659,6 +682,7 @@ void OvrPlatform_AssetFile_DownloadCancelByName(
     FString AssetFileName,
     OvrPlatform_AssetFile_DownloadCancelByName_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadCancelByName_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -687,6 +711,7 @@ void OvrPlatform_AssetFile_GetList(
     UGameInstance* GameInstance,
     OvrPlatform_AssetFile_GetList_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_GetList_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -722,6 +747,7 @@ void OvrPlatform_AssetFile_Status(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_Status_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_Status_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -751,6 +777,7 @@ void OvrPlatform_AssetFile_StatusById(
     FOvrId AssetFileID,
     OvrPlatform_AssetFile_StatusById_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_StatusById_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -780,6 +807,7 @@ void OvrPlatform_AssetFile_StatusByName(
     FString AssetFileName,
     OvrPlatform_AssetFile_StatusByName_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_StatusByName_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -812,6 +840,7 @@ void OvrPlatform_Avatar_LaunchAvatarEditor(
     FOvrAvatarEditorOptions Options,
     OvrPlatform_Avatar_LaunchAvatarEditor_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Avatar_LaunchAvatarEditor_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -845,6 +874,7 @@ void OvrPlatform_Challenges_Create(
     FOvrChallengeOptions ChallengeOptions,
     OvrPlatform_Challenges_Create_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Create_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -874,6 +904,7 @@ void OvrPlatform_Challenges_DeclineInvite(
     FOvrId ChallengeID,
     OvrPlatform_Challenges_DeclineInvite_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_DeclineInvite_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -903,6 +934,7 @@ void OvrPlatform_Challenges_Delete(
     FOvrId ChallengeID,
     OvrPlatform_Challenges_Delete_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Delete_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -927,6 +959,7 @@ void OvrPlatform_Challenges_Get(
     FOvrId ChallengeID,
     OvrPlatform_Challenges_Get_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Get_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -959,6 +992,7 @@ void OvrPlatform_Challenges_GetEntries(
     EOvrLeaderboardStartAt StartAt,
     OvrPlatform_Challenges_GetEntries_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetEntries_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -990,6 +1024,7 @@ void OvrPlatform_Challenges_GetEntriesAfterRank(
     int64 AfterRank,
     OvrPlatform_Challenges_GetEntriesAfterRank_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetEntriesAfterRank_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1022,6 +1057,7 @@ void OvrPlatform_Challenges_GetEntriesByIds(
     TArray<FOvrId> UserIDs,
     OvrPlatform_Challenges_GetEntriesByIds_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetEntriesByIds_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1052,6 +1088,7 @@ void OvrPlatform_Challenges_GetList(
     int32 Limit,
     OvrPlatform_Challenges_GetList_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetList_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1081,6 +1118,7 @@ void OvrPlatform_Challenges_Join(
     FOvrId ChallengeID,
     OvrPlatform_Challenges_Join_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Join_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1110,6 +1148,7 @@ void OvrPlatform_Challenges_Leave(
     FOvrId ChallengeID,
     OvrPlatform_Challenges_Leave_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Leave_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1140,6 +1179,7 @@ void OvrPlatform_Challenges_UpdateInfo(
     FOvrChallengeOptions ChallengeOptions,
     OvrPlatform_Challenges_UpdateInfo_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_UpdateInfo_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1171,6 +1211,7 @@ void OvrPlatform_Cowatching_GetPresenterData(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_GetPresenterData_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_GetPresenterData_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1199,6 +1240,7 @@ void OvrPlatform_Cowatching_GetViewersData(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_GetViewersData_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_GetViewersData_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1227,6 +1269,7 @@ void OvrPlatform_Cowatching_IsInSession(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_IsInSession_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_IsInSession_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1255,6 +1298,7 @@ void OvrPlatform_Cowatching_JoinSession(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_JoinSession_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_JoinSession_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1278,6 +1322,7 @@ void OvrPlatform_Cowatching_LaunchInviteDialog(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_LaunchInviteDialog_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_LaunchInviteDialog_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1301,6 +1346,7 @@ void OvrPlatform_Cowatching_LeaveSession(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_LeaveSession_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_LeaveSession_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1324,6 +1370,7 @@ void OvrPlatform_Cowatching_RequestToPresent(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_RequestToPresent_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_RequestToPresent_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1347,6 +1394,7 @@ void OvrPlatform_Cowatching_ResignFromPresenting(
     UGameInstance* GameInstance,
     OvrPlatform_Cowatching_ResignFromPresenting_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_ResignFromPresenting_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1372,6 +1420,7 @@ void OvrPlatform_Cowatching_SetPresenterData(
     FString PresenterData,
     OvrPlatform_Cowatching_SetPresenterData_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_SetPresenterData_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1396,6 +1445,7 @@ void OvrPlatform_Cowatching_SetViewerData(
     FString ViewerData,
     OvrPlatform_Cowatching_SetViewerData_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_SetViewerData_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1423,6 +1473,7 @@ void OvrPlatform_DeviceApplicationIntegrity_GetIntegrityToken(
     FString ChallengeNonce,
     OvrPlatform_DeviceApplicationIntegrity_GetIntegrityToken_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_DeviceApplicationIntegrity_GetIntegrityToken_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1454,6 +1505,7 @@ void OvrPlatform_Entitlement_GetIsViewerEntitled(
     UGameInstance* GameInstance,
     OvrPlatform_Entitlement_GetIsViewerEntitled_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Entitlements_GetIsViewerEntitled_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1480,6 +1532,7 @@ void OvrPlatform_GroupPresence_Clear(
     UGameInstance* GameInstance,
     OvrPlatform_GroupPresence_Clear_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_Clear_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1504,6 +1557,7 @@ void OvrPlatform_GroupPresence_GetInvitableUsers(
     FOvrInviteOptions Options,
     OvrPlatform_GroupPresence_GetInvitableUsers_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_GetInvitableUsers_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1532,6 +1586,7 @@ void OvrPlatform_GroupPresence_GetSentInvites(
     UGameInstance* GameInstance,
     OvrPlatform_GroupPresence_GetSentInvites_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_GetSentInvites_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1561,6 +1616,7 @@ void OvrPlatform_GroupPresence_LaunchInvitePanel(
     FOvrInviteOptions Options,
     OvrPlatform_GroupPresence_LaunchInvitePanel_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchInvitePanel_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1590,6 +1646,7 @@ void OvrPlatform_GroupPresence_LaunchMultiplayerErrorDialog(
     FOvrMultiplayerErrorOptions Options,
     OvrPlatform_GroupPresence_LaunchMultiplayerErrorDialog_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchMultiplayerErrorDialog_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1616,6 +1673,7 @@ void OvrPlatform_GroupPresence_LaunchRejoinDialog(
     FString DestinationApiName,
     OvrPlatform_GroupPresence_LaunchRejoinDialog_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchRejoinDialog_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1645,6 +1703,7 @@ void OvrPlatform_GroupPresence_LaunchRosterPanel(
     FOvrRosterOptions Options,
     OvrPlatform_GroupPresence_LaunchRosterPanel_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchRosterPanel_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1669,6 +1728,7 @@ void OvrPlatform_GroupPresence_SendInvites(
     TArray<FOvrId> UserIDs,
     OvrPlatform_GroupPresence_SendInvites_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SendInvites_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1698,6 +1758,7 @@ void OvrPlatform_GroupPresence_Set(
     FOvrGroupPresenceOptions GroupPresenceOptions,
     OvrPlatform_GroupPresence_Set_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_Set_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1722,6 +1783,7 @@ void OvrPlatform_GroupPresence_SetDeeplinkMessageOverride(
     FString DeeplinkMessage,
     OvrPlatform_GroupPresence_SetDeeplinkMessageOverride_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetDeeplinkMessageOverride_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1746,6 +1808,7 @@ void OvrPlatform_GroupPresence_SetDestination(
     FString ApiName,
     OvrPlatform_GroupPresence_SetDestination_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetDestination_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1770,6 +1833,7 @@ void OvrPlatform_GroupPresence_SetIsJoinable(
     bool IsJoinable,
     OvrPlatform_GroupPresence_SetIsJoinable_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetIsJoinable_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1794,6 +1858,7 @@ void OvrPlatform_GroupPresence_SetLobbySession(
     FString Id,
     OvrPlatform_GroupPresence_SetLobbySession_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetLobbySession_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1818,6 +1883,7 @@ void OvrPlatform_GroupPresence_SetMatchSession(
     FString Id,
     OvrPlatform_GroupPresence_SetMatchSession_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetMatchSession_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1845,6 +1911,7 @@ void OvrPlatform_IAP_ConsumePurchase(
     FString Sku,
     OvrPlatform_IAP_ConsumePurchase_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_ConsumePurchase_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1869,6 +1936,7 @@ void OvrPlatform_IAP_GetProductsBySKU(
     TArray<FString> Skus,
     OvrPlatform_IAP_GetProductsBySKU_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetProductsBySKU_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1897,6 +1965,7 @@ void OvrPlatform_IAP_GetViewerPurchases(
     UGameInstance* GameInstance,
     OvrPlatform_IAP_GetViewerPurchases_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetViewerPurchases_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1925,6 +1994,7 @@ void OvrPlatform_IAP_GetViewerPurchasesDurableCache(
     UGameInstance* GameInstance,
     OvrPlatform_IAP_GetViewerPurchasesDurableCache_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetViewerPurchasesDurableCache_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1954,6 +2024,7 @@ void OvrPlatform_IAP_LaunchCheckoutFlow(
     FString Sku,
     OvrPlatform_IAP_LaunchCheckoutFlow_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_LaunchCheckoutFlow_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -1985,6 +2056,7 @@ void OvrPlatform_LanguagePack_GetCurrent(
     UGameInstance* GameInstance,
     OvrPlatform_LanguagePack_GetCurrent_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_LanguagePack_GetCurrent_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2014,6 +2086,7 @@ void OvrPlatform_LanguagePack_SetCurrent(
     FString Tag,
     OvrPlatform_LanguagePack_SetCurrent_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_LanguagePack_SetCurrent_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2046,6 +2119,7 @@ void OvrPlatform_Leaderboard_Get(
     FString LeaderboardName,
     OvrPlatform_Leaderboard_Get_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_Get_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2078,6 +2152,7 @@ void OvrPlatform_Leaderboard_GetEntries(
     EOvrLeaderboardStartAt StartAt,
     OvrPlatform_Leaderboard_GetEntries_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetEntries_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2109,6 +2184,7 @@ void OvrPlatform_Leaderboard_GetEntriesAfterRank(
     int64 AfterRank,
     OvrPlatform_Leaderboard_GetEntriesAfterRank_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetEntriesAfterRank_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2141,6 +2217,7 @@ void OvrPlatform_Leaderboard_GetEntriesByIds(
     TArray<FOvrId> UserIDs,
     OvrPlatform_Leaderboard_GetEntriesByIds_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetEntriesByIds_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2173,6 +2250,7 @@ void OvrPlatform_Leaderboard_WriteEntry(
     bool ForceUpdate,
     OvrPlatform_Leaderboard_WriteEntry_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_WriteEntry_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2206,6 +2284,7 @@ void OvrPlatform_Leaderboard_WriteEntryWithSupplementaryMetric(
     bool ForceUpdate,
     OvrPlatform_Leaderboard_WriteEntryWithSupplementaryMetric_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_WriteEntryWithSupplementaryMetric_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2240,6 +2319,7 @@ void OvrPlatform_Media_ShareToFacebook(
     EOvrMediaContentType ContentType,
     OvrPlatform_Media_ShareToFacebook_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Media_ShareToFacebook_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2272,6 +2352,7 @@ void OvrPlatform_Notification_MarkAsRead(
     FOvrId NotificationID,
     OvrPlatform_Notification_MarkAsRead_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Notifications_MarkAsRead_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2292,43 +2373,13 @@ void OvrPlatform_Notification_MarkAsRead(
 }
 
 // ----------------------------------------------------------------------
-// Party
-
-void OvrPlatform_Party_GetCurrent(
-    UGameInstance* GameInstance,
-    OvrPlatform_Party_GetCurrent_Delegate&& Delegate)
-{
-    if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
-    {
-        OvrPlatform->AddRequestDelegate(
-            ovr_Party_GetCurrent(),
-            FOvrPlatformMessageOnComplete::CreateLambda(
-                [Delegate](TOvrMessageHandlePtr MessagePtr, bool bIsError)->void
-                {
-                    FOvrPartyPtr ResponsePtr = MakeShared<FOvrParty>();
-                    FString ErrMsg;
-                    if (bIsError)
-                    {
-                        ovrErrorHandle Error = ovr_Message_GetError(*MessagePtr);
-                        ErrMsg = UTF8_TO_TCHAR(ovr_Error_GetMessage(Error));
-                    }
-                    else
-                    {
-                        ResponsePtr->Update(ovr_Message_GetParty(*MessagePtr), MessagePtr);
-                    }
-
-                    Delegate.ExecuteIfBound(!bIsError, ResponsePtr, ErrMsg);
-                }));
-    }
-}
-
-// ----------------------------------------------------------------------
 // PushNotification
 
 void OvrPlatform_PushNotification_Register(
     UGameInstance* GameInstance,
     OvrPlatform_PushNotification_Register_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_PushNotification_Register_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2360,6 +2411,7 @@ void OvrPlatform_RichPresence_Clear(
     UGameInstance* GameInstance,
     OvrPlatform_RichPresence_Clear_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_Clear_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2383,6 +2435,7 @@ void OvrPlatform_RichPresence_GetDestinations(
     UGameInstance* GameInstance,
     OvrPlatform_RichPresence_GetDestinations_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_GetDestinations_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2412,6 +2465,7 @@ void OvrPlatform_RichPresence_Set(
     FOvrRichPresenceOptions RichPresenceOptions,
     OvrPlatform_RichPresence_Set_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_Set_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2439,6 +2493,7 @@ void OvrPlatform_User_Get(
     FOvrId UserID,
     OvrPlatform_User_Get_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_Get_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2467,6 +2522,7 @@ void OvrPlatform_User_GetAccessToken(
     UGameInstance* GameInstance,
     OvrPlatform_User_GetAccessToken_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetAccessToken_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2495,6 +2551,7 @@ void OvrPlatform_User_GetBlockedUsers(
     UGameInstance* GameInstance,
     OvrPlatform_User_GetBlockedUsers_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetBlockedUsers_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2524,6 +2581,7 @@ void OvrPlatform_User_GetLinkedAccounts(
     FOvrUserOptions UserOptions,
     OvrPlatform_User_GetLinkedAccounts_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLinkedAccounts_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2558,6 +2616,7 @@ void OvrPlatform_User_GetLoggedInUser(
     UGameInstance* GameInstance,
     OvrPlatform_User_GetLoggedInUser_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLoggedInUser_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2586,6 +2645,7 @@ void OvrPlatform_User_GetLoggedInUserFriends(
     UGameInstance* GameInstance,
     OvrPlatform_User_GetLoggedInUserFriends_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLoggedInUserFriends_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2614,6 +2674,7 @@ void OvrPlatform_User_GetLoggedInUserManagedInfo(
     UGameInstance* GameInstance,
     OvrPlatform_User_GetLoggedInUserManagedInfo_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLoggedInUserManagedInfo_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2643,6 +2704,7 @@ void OvrPlatform_User_GetOrgScopedID(
     FOvrId UserID,
     OvrPlatform_User_GetOrgScopedID_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetOrgScopedID_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2671,6 +2733,7 @@ void OvrPlatform_User_GetSdkAccounts(
     UGameInstance* GameInstance,
     OvrPlatform_User_GetSdkAccounts_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetSdkAccounts_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2705,6 +2768,7 @@ void OvrPlatform_User_GetUserProof(
     UGameInstance* GameInstance,
     OvrPlatform_User_GetUserProof_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetUserProof_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2734,6 +2798,7 @@ void OvrPlatform_User_LaunchBlockFlow(
     FOvrId UserID,
     OvrPlatform_User_LaunchBlockFlow_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_LaunchBlockFlow_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2763,6 +2828,7 @@ void OvrPlatform_User_LaunchFriendRequestFlow(
     FOvrId UserID,
     OvrPlatform_User_LaunchFriendRequestFlow_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_LaunchFriendRequestFlow_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2792,6 +2858,7 @@ void OvrPlatform_User_LaunchUnblockFlow(
     FOvrId UserID,
     OvrPlatform_User_LaunchUnblockFlow_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_LaunchUnblockFlow_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2823,6 +2890,7 @@ void OvrPlatform_UserAgeCategory_Get(
     UGameInstance* GameInstance,
     OvrPlatform_UserAgeCategory_Get_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_UserAgeCategory_Get_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2852,6 +2920,7 @@ void OvrPlatform_UserAgeCategory_Report(
     EOvrAppAgeCategory AgeCategory,
     OvrPlatform_UserAgeCategory_Report_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_UserAgeCategory_Report_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2878,6 +2947,7 @@ void OvrPlatform_Voip_GetMicrophoneAvailability(
     UGameInstance* GameInstance,
     OvrPlatform_Voip_GetMicrophoneAvailability_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Voip_GetMicrophoneAvailability_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -2907,6 +2977,7 @@ void OvrPlatform_Voip_SetSystemVoipSuppressed(
     bool Suppressed,
     OvrPlatform_Voip_SetSystemVoipSuppressed_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Voip_SetSystemVoipSuppressed_CPP", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(

@@ -54,7 +54,7 @@ typedef struct {
   /// The type of value stored in the ovrKeyValuePair struct. Can be one of ovrKeyValuePairType: ovrKeyValuePairType_Integer,
   /// ovrKeyValuePairType_Double, ovrKeyValuePairType_String or ovrKeyValuePairType_Unknown.
   ovrKeyValuePairType valueType;
-  
+
   /// The string value associated with the key, if the valueType is ovrKeyValuePairType_String.
   /// If the valueType is not ovrKeyValuePairType_String, this field is ignored.
   const char* stringValue;
@@ -70,17 +70,17 @@ typedef struct {
 /// Helper function for making an int ovrKeyValuePair.
 ///
 /// For example, ovrKeyValuePair_makeInt("key", 1);
-ovrKeyValuePair ovrKeyValuePair_makeInt(const char* key, int value);
+OVRPL_PUBLIC_FUNCTION(ovrKeyValuePair) ovrKeyValuePair_makeInt(const char* key, int value);
 
 /// Helper function for making a double ovrKeyValuePair.
 ///
 /// For example, ovrKeyValuePair_makeDouble("key", 1.1);
-ovrKeyValuePair ovrKeyValuePair_makeDouble(const char* key, double value);
+OVRPL_PUBLIC_FUNCTION(ovrKeyValuePair) ovrKeyValuePair_makeDouble(const char* key, double value);
 
 /// Helper function for making a string ovrKeyValuePair.
 ///
 /// For example, ovrKeyValuePair_makeString("key", "value");
-ovrKeyValuePair ovrKeyValuePair_makeString(const char* key, const char* value);
+OVRPL_PUBLIC_FUNCTION(ovrKeyValuePair) ovrKeyValuePair_makeString(const char* key, const char* value);
 
 /// A unique identifier for some entity in the system (user, room, etc).
 ///
@@ -88,7 +88,7 @@ typedef uint64_t ovrID;
 
 /// Convert a string into an ovrID.  Returns false if the input is
 /// malformed (either out of range, or not an integer).
-bool ovrID_FromString(ovrID* outId, const char* inId);
+OVRPL_PUBLIC_FUNCTION(bool) ovrID_FromString(ovrID* outId, const char* inId);
 
 /// Convert an ID back into a string.  This function round trips with
 /// ovrID_FromString().  Note: the id format may change in the future.
@@ -96,7 +96,7 @@ bool ovrID_FromString(ovrID* outId, const char* inId);
 /// integer.
 ///
 /// Length of outParam should be > 20.
-bool ovrID_ToString(char* outParam, size_t bufferLength, ovrID id);
+OVRPL_PUBLIC_FUNCTION(bool) ovrID_ToString(char* outParam, size_t bufferLength, ovrID id);
 
 typedef void (*LogFunctionPtr)(const char*, const char*);
 extern LogFunctionPtr DoLogging;
@@ -114,7 +114,7 @@ typedef void (*MicrophoneDataAvailableCallback)(void*);
 /// The struct consists of 3 float values: x, y, and z each representing an axis.
 /// See more details [here](https://developer.oculus.com/reference/platform/latest/).
 typedef struct {
-  /// The x component of the ovrNetSyncVec3 struct. It is a float value representing the x-axis.    
+  /// The x component of the ovrNetSyncVec3 struct. It is a float value representing the x-axis.
   float x;
   /// The y component of the ovrNetSyncVec3 struct. It is a float value representing the y-axis.
   float y;

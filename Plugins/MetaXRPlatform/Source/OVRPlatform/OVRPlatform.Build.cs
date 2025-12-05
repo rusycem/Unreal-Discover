@@ -24,6 +24,7 @@ public class OVRPlatform : ModuleRules
                 "Sockets",
                 "OVRPlatformSDK",
                 "OnlineSubsystemUtils",
+                "OVRPlatformEngineTelemetry"
             });
 
         PrivateDependencyModuleNames.AddRange(

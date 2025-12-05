@@ -27,7 +27,7 @@
 
 #include "OVR_Platform_Defs.h"
 
-/// \file 
+/// \file
 /// It's an enum that represents the different types of ::ovrMessageHandle that can be exchanged. The enumeration contains several values, each representing a specific message type.
 /// Some of these message types are used in responses to specific API functions called by the application, while others are notifications sent by the platform to the application.
 
@@ -132,7 +132,6 @@ typedef enum ovrMessageType_ {
   ovrMessage_Leaderboard_WriteEntryWithSupplementaryMetric      = 0x72C692FA, ///< Generated in response to ovr_Leaderboard_WriteEntryWithSupplementaryMetric()
   ovrMessage_Media_ShareToFacebook                              = 0x00E38AEF, ///< Generated in response to ovr_Media_ShareToFacebook()
   ovrMessage_Notification_MarkAsRead                            = 0x717259E3, ///< Generated in response to ovr_Notification_MarkAsRead()
-  ovrMessage_Party_GetCurrent                                   = 0x47933760, ///< Generated in response to ovr_Party_GetCurrent()
   ovrMessage_PushNotification_Register                          = 0x663A8B5F, ///< Generated in response to ovr_PushNotification_Register()
   ovrMessage_RichPresence_Clear                                 = 0x57B752B3, ///< Generated in response to ovr_RichPresence_Clear()
   ovrMessage_RichPresence_GetDestinations                       = 0x586F2D14, ///< Generated in response to ovr_RichPresence_GetDestinations()
@@ -371,7 +370,13 @@ typedef enum ovrMessageType_ {
 /// This function can be used to converts an ::ovrMessageType value to a human readable string.
 OVRPL_PUBLIC_FUNCTION(const char*) ovrMessageType_ToString(ovrMessageType value);
 
-/// It can be used to determine whether a given ::ovrMessageType value represents a notification or not. 
+/// This function can be used to converts an ::ovrMessageType value to SDK package name.
+OVRPL_PUBLIC_FUNCTION(const char*) ovrMessageType_ToSdkPkg(ovrMessageType value);
+
+/// This function can be used to converts an ::ovrMessageType value to SDK API name.
+OVRPL_PUBLIC_FUNCTION(const char*) ovrMessageType_ToSdkApi(ovrMessageType value);
+
+/// It can be used to determine whether a given ::ovrMessageType value represents a notification or not.
 OVRPL_PUBLIC_FUNCTION(bool) ovrMessageType_IsNotification(ovrMessageType value);
 
 #endif

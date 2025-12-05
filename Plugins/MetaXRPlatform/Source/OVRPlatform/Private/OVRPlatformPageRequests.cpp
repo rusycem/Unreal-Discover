@@ -3,6 +3,7 @@
 // This file was @generated with LibOVRPlatform/codegen/main. Do not modify it!
 
 #include "OVRPlatformPageRequests.h"
+#include "OVRPlatformEngineTelemetry.h"
 #include "Engine/Engine.h"
 
 // ----------------------------------------------------------------------
@@ -20,6 +21,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchAchievementDefinitionPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_FetchAchievementDefinitionPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -105,6 +107,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchAchievementProgressPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_FetchAchievementProgressPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -190,6 +193,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchApplicationInvitePage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_FetchApplicationInvitePage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -275,6 +279,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchBlockedUserPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_FetchBlockedUserPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -361,6 +366,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchChallengePage(
     bool& bHasPreviousPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_FetchChallengePage_HasPrevious", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -466,6 +472,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchChallengeEntryPage(
     bool& bHasPreviousPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_FetchChallengeEntryPage_HasPrevious", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -570,6 +577,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchCowatchViewerPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_FetchCowatchViewerPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -655,6 +663,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchDestinationPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_FetchDestinationPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -740,6 +749,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchLeaderboardPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_FetchLeaderboardPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -826,6 +836,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchLeaderboardEntryPage(
     bool& bHasPreviousPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_FetchLeaderboardEntryPage_HasPrevious", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -930,6 +941,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchProductPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_FetchProductPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -1015,6 +1027,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchPurchasePage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_FetchPurchasePage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -1100,6 +1113,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchUserPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_FetchUserPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;
@@ -1185,6 +1199,7 @@ void UOvrPageRequestsBlueprintLibrary::FetchUserCapabilityPage(
     bool& bHasNextPage,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_FetchUserCapabilityPage", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformRequestGenerator RequestGenerator;

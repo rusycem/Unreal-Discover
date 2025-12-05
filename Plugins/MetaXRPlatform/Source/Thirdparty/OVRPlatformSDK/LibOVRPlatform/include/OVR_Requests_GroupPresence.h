@@ -63,7 +63,7 @@ OVRP_PUBLIC_FUNCTION(ovrRequest) ovr_GroupPresence_Clear();
 
 /// Returns a list of users that can be invited to your current lobby. These
 /// are pulled from your bidirectional followers and recently met lists.
-/// \param options It contains two methods. 1. ovr_InviteOptions_AddSuggestedUser() - Takes the userID as a parameter and adds it to the inevitable users list. 2. ovr_InviteOptions_ClearSuggestedUsers() - Clears the inevitable users list.
+/// \param options It contains two methods. 1. ovr_InviteOptions_AddSuggestedUser() - Takes the userID as a parameter and adds it to the invitable users list. 2. ovr_InviteOptions_ClearSuggestedUsers() - Clears the invitable users list.
 ///
 /// A message with type ::ovrMessage_GroupPresence_GetInvitableUsers will be generated in response.
 ///
@@ -97,7 +97,7 @@ OVRP_PUBLIC_FUNCTION(ovrRequest) ovr_GroupPresence_GetSentInvites();
 /// Launches the system invite dialog with a roster of eligible users for the
 /// current user to invite to the app. It is recommended that you surface a
 /// button in your UI that triggers this dialog when a user is joinable.
-/// \param options It contains two methods. 1. ovr_InviteOptions_AddSuggestedUser() - Takes the userID as a parameter and adds it to the inevitable users list. 2. ovr_InviteOptions_ClearSuggestedUsers() - Clears the inevitable users list.
+/// \param options It contains two methods. 1. ovr_InviteOptions_AddSuggestedUser() - Takes the userID as a parameter and adds it to the invitable users list. 2. ovr_InviteOptions_ClearSuggestedUsers() - Clears the invitable users list.
 ///
 /// A message with type ::ovrMessage_GroupPresence_LaunchInvitePanel will be generated in response.
 ///
@@ -140,7 +140,7 @@ OVRP_PUBLIC_FUNCTION(ovrRequest) ovr_GroupPresence_LaunchRejoinDialog(const char
 /// Launch the panel displaying the current users in the roster. We do not
 /// recommend using this API because the list current users is surfaced in the
 /// Destination UI when the Meta Quest button is pressed.
-/// \param options It contains 2 methods. 1. ovr_RosterOptions_AddSuggestedUser() - it takes userID as a parameter and adds it to the inevitable users list. 2. ovr_RosterOptions_ClearSuggestedUsers() - it clears the inevitable users list.
+/// \param options It contains 2 methods. 1. ovr_RosterOptions_AddSuggestedUser() - it takes userID as a parameter and adds it to the invitable users list. 2. ovr_RosterOptions_ClearSuggestedUsers() - it clears the invitable users list.
 ///
 /// A message with type ::ovrMessage_GroupPresence_LaunchRosterPanel will be generated in response.
 ///

@@ -990,7 +990,7 @@ public:
         EOvrRequestOutputPins& OutExecs,
         /// Information about the latent action that will be performed as a result of this request.
         FLatentActionInfo LatentInfo,
-        /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the inevitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the inevitable users list.
+        /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the invitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the invitable users list.
         FOvrInviteOptions Options,
         /// Represents the payload of the request, if the request succeeded. These results can be used to provide more context and information about the outcome of the request.
         FOvrUserPages& UserPages,
@@ -1023,7 +1023,7 @@ public:
         EOvrRequestOutputPins& OutExecs,
         /// Information about the latent action that will be performed as a result of this request.
         FLatentActionInfo LatentInfo,
-        /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the inevitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the inevitable users list.
+        /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the invitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the invitable users list.
         FOvrInviteOptions Options,
         /// Represents the payload of the request, if the request succeeded. These results can be used to provide more context and information about the outcome of the request.
         FOvrInvitePanelResultInfo& InvitePanelResultInfo,
@@ -1084,7 +1084,7 @@ public:
         EOvrRequestOutputPins& OutExecs,
         /// Information about the latent action that will be performed as a result of this request.
         FLatentActionInfo LatentInfo,
-        /// It contains 2 methods. 1. {{options.roster.suggested_users}} - it takes userID as a parameter and adds it to the inevitable users list. 2. {{options_clear.roster.suggested_users}} - it clears the inevitable users list.
+        /// It contains 2 methods. 1. {{options.roster.suggested_users}} - it takes userID as a parameter and adds it to the invitable users list. 2. {{options_clear.roster.suggested_users}} - it clears the invitable users list.
         FOvrRosterOptions Options,
         /// Error message if the request failed, which contains failure reason, it is empty if the request succeeded.
         FString& ErrorMsg);
@@ -1567,23 +1567,6 @@ public:
         FString& ErrorMsg);
 
     // ----------------------------------------------------------------------
-    // Party
-
-    /** Load the current party the current FOvrUser is in. The returned FOvrParty will then contain information about other users in the party and invited users. If the user is not currently in a party, the request will return an error message with code 10. */
-    UFUNCTION(BlueprintCallable, meta = (Latent, LatentInfo = "LatentInfo", WorldContext = "WorldContextObject", ExpandEnumAsExecs = "OutExecs"), Category = "OvrPlatform|Party")
-    static void Party_GetCurrent(
-        /// Word context
-        UObject* WorldContextObject,
-        /// Reference to an array of output pins that will be executed as a result of this request.
-        EOvrRequestOutputPins& OutExecs,
-        /// Information about the latent action that will be performed as a result of this request.
-        FLatentActionInfo LatentInfo,
-        /// Represents the payload of the request, if the request succeeded. These results can be used to provide more context and information about the outcome of the request.
-        FOvrParty& Party,
-        /// Error message if the request failed, which contains failure reason, it is empty if the request succeeded.
-        FString& ErrorMsg);
-
-    // ----------------------------------------------------------------------
     // PushNotification
 
     /** Register the device to receive push notification. The registered notification id can be fetched by field FOvrPushNotificationResult::Id. */
@@ -1698,7 +1681,7 @@ public:
     /**
      * Returns a list of linked accounts that are associated with the specified service providers.
      * 
-     * Customization can be done via UserOptions. Create this object withFOvrUserOptions.
+     * Customization can be done via UserOptions. Create this object with FOvrUserOptions.
      * The params that could be used are:
      * 
      * 1. FOvrUserOptions::ServiceProviders.Emplace() - returns the list of linked accounts
@@ -1730,11 +1713,13 @@ public:
         FString& ErrorMsg);
 
     /**
-     * Retrieve the currently signed in user.  This call is available offline.
+     * Retrieve the currently signed in user. This call is available offline.
      * 
      * 
-     * NOTE: This will not return the user's presence as it should always be 'online'
-     * in your application.
+     * NOTE: Please be aware that this function will only return the following information about the user:
+     * Alias (Oculus ID), ID (App Scoped ID), Profile URL (image_url).
+     * If you need to retrieve additional user information, such as presence details, please use the App Scoped ID obtained
+     * from Users.GetLoggedInUser() in conjunction with Users.Get(ulong UserID). This will provide access to more comprehensive user data.
      * 
      * 
      * NOTE: Users will have a unique ID per application.

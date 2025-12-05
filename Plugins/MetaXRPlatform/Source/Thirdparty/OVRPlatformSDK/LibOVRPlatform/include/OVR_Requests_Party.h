@@ -55,17 +55,4 @@
 /// Calling ovr_Party_GetCurrent() with a party ID will grab the Party object
 /// and the associated metadata.
 
-/// Load the current party the current ::ovrUserHandle is in. The returned
-/// ::ovrPartyHandle will then contain information about other users in the
-/// party and invited users. If the user is not currently in a party, the
-/// request will return an error message with code 10.
-///
-/// A message with type ::ovrMessage_Party_GetCurrent will be generated in response.
-///
-/// First call ::ovr_Message_IsError() to check if an error occurred.
-///
-/// If no error occurred, the message will contain a payload of type ::ovrPartyHandle.
-/// Extract the payload from the message handle with ::ovr_Message_GetParty().
-OVRP_PUBLIC_FUNCTION(ovrRequest) ovr_Party_GetCurrent();
-
 #endif

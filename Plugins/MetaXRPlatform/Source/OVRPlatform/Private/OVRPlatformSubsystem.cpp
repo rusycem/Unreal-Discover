@@ -8,6 +8,7 @@
 #include "Misc/CommandLine.h"
 #include "OVRPlatform.h"
 #include "Runtime/Launch/Resources/Version.h"
+#include "OVRPlatformEngineTelemetry.h"
 
 #include "Engine/GameInstance.h"
 
@@ -142,8 +143,9 @@ void UOvrPlatformSubsystem::Initialize(FSubsystemCollectionBase& Collection)
     bOculusInit = false;
 
     bool bDoAsyncInit = GetDoAsyncInit();
+    bool bIsEmailAndPasswordAuthRequested = IsEmailAndPasswordAuthRequested();
 
-    if (bDoAsyncInit && IsEmailAndPasswordAuthRequested())
+    if (bDoAsyncInit && bIsEmailAndPasswordAuthRequested)
     {
         UE_LOG(LogOvrPlatform, Warning,
             TEXT("Async init and standalone (Username+Password) init are incompatible.  Falling back to blocking, standaline init."));
@@ -155,8 +157,17 @@ void UOvrPlatformSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 #if TICK_SUBSYSTEM
 #if PLATFORM_WINDOWS
         bOculusInit = InitWithWindowsPlatform();
+        if (bIsEmailAndPasswordAuthRequested)
+        {
+            FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AsyncInitialize_Standalone", "", "");
+        }
+        else
+        {
+            FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AsyncInitialize_Windows", "", "");
+        }
 #elif PLATFORM_ANDROID
         bOculusInit = InitWithAndroidPlatform();
+        FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AsyncInitialize_Android", "", "");
 #endif
 #endif
 
@@ -512,6 +523,7 @@ void UOvrPlatformSubsystem::RemoveNotifDelegate(ovrMessageType MessageType, cons
 
 void UOvrPlatformSubsystem::HandleOnAbuseReportReportButtonPressed(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AbuseReport_ReportButtonPressedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -527,6 +539,7 @@ void UOvrPlatformSubsystem::HandleOnAbuseReportReportButtonPressed(TOvrMessageHa
 
 void UOvrPlatformSubsystem::HandleOnApplicationLifecycleLaunchIntentChanged(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_ApplicationLifecycle_LaunchIntentChangedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -542,6 +555,7 @@ void UOvrPlatformSubsystem::HandleOnApplicationLifecycleLaunchIntentChanged(TOvr
 
 void UOvrPlatformSubsystem::HandleOnAssetFileDownloadUpdate(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadUpdateNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -558,6 +572,7 @@ void UOvrPlatformSubsystem::HandleOnAssetFileDownloadUpdate(TOvrMessageHandlePtr
 
 void UOvrPlatformSubsystem::HandleOnCowatchingApiNotReady(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_ApiNotReadyNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -573,6 +588,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingApiNotReady(TOvrMessageHandlePtr M
 
 void UOvrPlatformSubsystem::HandleOnCowatchingApiReady(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_ApiReadyNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -588,6 +604,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingApiReady(TOvrMessageHandlePtr Mess
 
 void UOvrPlatformSubsystem::HandleOnCowatchingInSessionChanged(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_InSessionChangedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -604,6 +621,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingInSessionChanged(TOvrMessageHandle
 
 void UOvrPlatformSubsystem::HandleOnCowatchingInitialized(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_InitializedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -619,6 +637,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingInitialized(TOvrMessageHandlePtr M
 
 void UOvrPlatformSubsystem::HandleOnCowatchingPresenterDataChanged(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_PresenterDataChangedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -634,6 +653,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingPresenterDataChanged(TOvrMessageHa
 
 void UOvrPlatformSubsystem::HandleOnCowatchingSessionStarted(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_SessionStartedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -649,6 +669,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingSessionStarted(TOvrMessageHandlePt
 
 void UOvrPlatformSubsystem::HandleOnCowatchingSessionStopped(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_SessionStoppedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -664,6 +685,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingSessionStopped(TOvrMessageHandlePt
 
 void UOvrPlatformSubsystem::HandleOnCowatchingViewersDataChanged(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_ViewersDataChangedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -680,6 +702,7 @@ void UOvrPlatformSubsystem::HandleOnCowatchingViewersDataChanged(TOvrMessageHand
 
 void UOvrPlatformSubsystem::HandleOnGroupPresenceInvitationsSent(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_InvitationsSentNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -696,6 +719,7 @@ void UOvrPlatformSubsystem::HandleOnGroupPresenceInvitationsSent(TOvrMessageHand
 
 void UOvrPlatformSubsystem::HandleOnGroupPresenceJoinIntentReceived(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_JoinIntentReceivedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -712,6 +736,7 @@ void UOvrPlatformSubsystem::HandleOnGroupPresenceJoinIntentReceived(TOvrMessageH
 
 void UOvrPlatformSubsystem::HandleOnGroupPresenceLeaveIntentReceived(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LeaveIntentReceivedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -728,6 +753,7 @@ void UOvrPlatformSubsystem::HandleOnGroupPresenceLeaveIntentReceived(TOvrMessage
 
 void UOvrPlatformSubsystem::HandleOnHTTPTransfer(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_HTTP_TransferNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -744,6 +770,7 @@ void UOvrPlatformSubsystem::HandleOnHTTPTransfer(TOvrMessageHandlePtr Message, b
 
 void UOvrPlatformSubsystem::HandleOnLivestreamingStatusChange(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Livestreaming_StatusChangeNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -760,6 +787,7 @@ void UOvrPlatformSubsystem::HandleOnLivestreamingStatusChange(TOvrMessageHandleP
 
 void UOvrPlatformSubsystem::HandleOnNetSyncConnectionStatusChanged(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_NetSync_ConnectionStatusChangedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -776,6 +804,7 @@ void UOvrPlatformSubsystem::HandleOnNetSyncConnectionStatusChanged(TOvrMessageHa
 
 void UOvrPlatformSubsystem::HandleOnNetSyncSessionsChanged(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_NetSync_SessionsChangedNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -792,6 +821,7 @@ void UOvrPlatformSubsystem::HandleOnNetSyncSessionsChanged(TOvrMessageHandlePtr 
 
 void UOvrPlatformSubsystem::HandleOnPartyPartyUpdate(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Parties_PartyUpdateNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -808,6 +838,7 @@ void UOvrPlatformSubsystem::HandleOnPartyPartyUpdate(TOvrMessageHandlePtr Messag
 
 void UOvrPlatformSubsystem::HandleOnVoipMicrophoneAvailabilityStateUpdate(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Voip_MicrophoneAvailabilityStateUpdateNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -823,6 +854,7 @@ void UOvrPlatformSubsystem::HandleOnVoipMicrophoneAvailabilityStateUpdate(TOvrMe
 
 void UOvrPlatformSubsystem::HandleOnVoipSystemVoipState(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Voip_SystemVoipStateNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -839,6 +871,7 @@ void UOvrPlatformSubsystem::HandleOnVoipSystemVoipState(TOvrMessageHandlePtr Mes
 
 void UOvrPlatformSubsystem::HandleOnVrcameraGetDataChannelMessageUpdate(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Vrcamera_GetDataChannelMessageUpdateNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);
@@ -854,6 +887,7 @@ void UOvrPlatformSubsystem::HandleOnVrcameraGetDataChannelMessageUpdate(TOvrMess
 
 void UOvrPlatformSubsystem::HandleOnVrcameraGetSurfaceUpdate(TOvrMessageHandlePtr Message, bool bIsError)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Vrcamera_GetSurfaceUpdateNotificationCallback", "", "");
     if (bIsError)
     {
         ovrErrorHandle Error = ovr_Message_GetError(*Message);

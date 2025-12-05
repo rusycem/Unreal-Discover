@@ -96,8 +96,8 @@ OVRP_PUBLIC_FUNCTION(ovrRequest) ovr_User_GetBlockedUsers();
 /// Returns a list of linked accounts that are associated with the specified
 /// service providers.
 ///
-/// Customization can be done via UserOptions. Create this object
-/// withovr_UserOptions_Create(). The params that could be used are:
+/// Customization can be done via UserOptions. Create this object with
+/// ovr_UserOptions_Create(). The params that could be used are:
 ///
 /// 1. ovr_UserOptions_AddServiceProvider() - returns the list of linked
 /// accounts that are associated with these specified service providers.
@@ -121,8 +121,12 @@ OVRP_PUBLIC_FUNCTION(ovrRequest) ovr_User_GetLinkedAccounts(ovrUserOptionsHandle
 
 /// Retrieve the currently signed in user. This call is available offline.
 ///
-/// NOTE: This will not return the user's presence as it should always be
-/// 'online' in your application.
+/// NOTE: Please be aware that this function will only return the following
+/// information about the user: Alias (Oculus ID), ID (App Scoped ID), Profile
+/// URL (image_url). If you need to retrieve additional user information, such
+/// as presence details, please use the App Scoped ID obtained from
+/// Users.GetLoggedInUser() in conjunction with Users.Get(ulong UserID). This
+/// will provide access to more comprehensive user data.
 ///
 /// NOTE: Users will have a unique ID per application.
 ///

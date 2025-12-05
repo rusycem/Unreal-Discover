@@ -7,6 +7,7 @@
 #include "OVRPlatformOptionsConverters.h"
 #include "OVRPlatformCppRequests.h"
 #include "OVRPlatformCppPageRequests.h"
+#include "OVRPlatformEngineTelemetry.h"
 
 // ----------------------------------------------------------------------
 // AbuseReport
@@ -21,6 +22,7 @@ void UOvrRequestsBlueprintLibrary::AbuseReport_ReportRequestHandled(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AbuseReport_ReportRequestHandled_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -57,6 +59,7 @@ void UOvrRequestsBlueprintLibrary::Achievements_AddCount(
     FOvrAchievementUpdate& AchievementUpdate,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_AddCount_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -97,6 +100,7 @@ void UOvrRequestsBlueprintLibrary::Achievements_AddFields(
     FOvrAchievementUpdate& AchievementUpdate,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_AddFields_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -134,6 +138,7 @@ void UOvrRequestsBlueprintLibrary::Achievements_GetAllDefinitions(
     FOvrAchievementDefinitionPages& AchievementDefinitionPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetAllDefinitions_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -171,6 +176,7 @@ void UOvrRequestsBlueprintLibrary::Achievements_GetAllProgress(
     FOvrAchievementProgressPages& AchievementProgressPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetAllProgress_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -210,6 +216,7 @@ void UOvrRequestsBlueprintLibrary::Achievements_GetDefinitionsByName(
     FOvrAchievementDefinitionPages& AchievementDefinitionPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetDefinitionsByName_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -249,6 +256,7 @@ void UOvrRequestsBlueprintLibrary::Achievements_GetProgressByName(
     FOvrAchievementProgressPages& AchievementProgressPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetProgressByName_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -288,6 +296,7 @@ void UOvrRequestsBlueprintLibrary::Achievements_Unlock(
     FOvrAchievementUpdate& AchievementUpdate,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_Unlock_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -328,6 +337,7 @@ void UOvrRequestsBlueprintLibrary::Application_CancelAppDownload(
     FOvrAppDownloadResult& AppDownloadResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_CancelAppDownload_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -365,6 +375,7 @@ void UOvrRequestsBlueprintLibrary::Application_CheckAppDownloadProgress(
     FOvrAppDownloadProgressResult& AppDownloadProgressResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_CheckAppDownloadProgress_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -402,6 +413,7 @@ void UOvrRequestsBlueprintLibrary::Application_GetVersion(
     FOvrApplicationVersion& ApplicationVersion,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_GetVersion_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -441,6 +453,7 @@ void UOvrRequestsBlueprintLibrary::Application_InstallAppUpdateAndRelaunch(
     FOvrAppDownloadResult& AppDownloadResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_InstallAppUpdateAndRelaunch_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -481,6 +494,7 @@ void UOvrRequestsBlueprintLibrary::Application_LaunchOtherApp(
     FString& StringPayload,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_LaunchOtherApp_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -518,6 +532,7 @@ void UOvrRequestsBlueprintLibrary::Application_StartAppDownload(
     FOvrAppDownloadResult& AppDownloadResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Application_StartAppDownload_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -563,6 +578,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_Delete(
     FOvrAssetFileDeleteResult& AssetFileDeleteResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_Delete_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -602,6 +618,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_DeleteById(
     FOvrAssetFileDeleteResult& AssetFileDeleteResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DeleteById_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -641,6 +658,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_DeleteByName(
     FOvrAssetFileDeleteResult& AssetFileDeleteResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DeleteByName_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -680,6 +698,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_Download(
     FOvrAssetFileDownloadResult& AssetFileDownloadResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_Download_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -719,6 +738,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_DownloadById(
     FOvrAssetFileDownloadResult& AssetFileDownloadResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadById_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -758,6 +778,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_DownloadByName(
     FOvrAssetFileDownloadResult& AssetFileDownloadResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadByName_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -797,6 +818,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_DownloadCancel(
     FOvrAssetFileDownloadCancelResult& AssetFileDownloadCancelResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadCancel_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -836,6 +858,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_DownloadCancelById(
     FOvrAssetFileDownloadCancelResult& AssetFileDownloadCancelResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadCancelById_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -875,6 +898,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_DownloadCancelByName(
     FOvrAssetFileDownloadCancelResult& AssetFileDownloadCancelResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_DownloadCancelByName_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -912,6 +936,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_GetList(
     TArray<FOvrAssetDetails>& AssetDetailsArray,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_GetList_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -957,6 +982,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_Status(
     FOvrAssetDetails& AssetDetails,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_Status_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -996,6 +1022,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_StatusById(
     FOvrAssetDetails& AssetDetails,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_StatusById_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1035,6 +1062,7 @@ void UOvrRequestsBlueprintLibrary::AssetFile_StatusByName(
     FOvrAssetDetails& AssetDetails,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_AssetFile_StatusByName_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1077,6 +1105,7 @@ void UOvrRequestsBlueprintLibrary::Avatar_LaunchAvatarEditor(
     FOvrAvatarEditorResult& AvatarEditorResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Avatar_LaunchAvatarEditor_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1120,6 +1149,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_Create(
     FOvrChallenge& Challenge,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Create_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1159,6 +1189,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_DeclineInvite(
     FOvrChallenge& Challenge,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_DeclineInvite_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1197,6 +1228,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_Delete(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Delete_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1229,6 +1261,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_Get(
     FOvrChallenge& Challenge,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Get_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1271,6 +1304,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_GetEntries(
     FOvrChallengeEntryPages& ChallengeEntryPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetEntries_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1312,6 +1346,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_GetEntriesAfterRank(
     FOvrChallengeEntryPages& ChallengeEntryPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetEntriesAfterRank_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1354,6 +1389,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_GetEntriesByIds(
     FOvrChallengeEntryPages& ChallengeEntryPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetEntriesByIds_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1394,6 +1430,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_GetList(
     FOvrChallengePages& ChallengePages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetList_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1433,6 +1470,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_Join(
     FOvrChallenge& Challenge,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Join_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1472,6 +1510,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_Leave(
     FOvrChallenge& Challenge,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_Leave_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1512,6 +1551,7 @@ void UOvrRequestsBlueprintLibrary::Challenges_UpdateInfo(
     FOvrChallenge& Challenge,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_UpdateInfo_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1552,6 +1592,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_GetPresenterData(
     FString& StringPayload,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_GetPresenterData_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1589,6 +1630,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_GetViewersData(
     FOvrCowatchViewerPages& CowatchViewerPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_GetViewersData_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1626,6 +1668,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_IsInSession(
     FOvrCowatchingState& CowatchingState,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_IsInSession_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1662,6 +1705,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_JoinSession(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_JoinSession_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1691,6 +1735,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_LaunchInviteDialog(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_LaunchInviteDialog_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1720,6 +1765,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_LeaveSession(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_LeaveSession_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1749,6 +1795,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_RequestToPresent(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_RequestToPresent_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1778,6 +1825,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_ResignFromPresenting(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_ResignFromPresenting_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1810,6 +1858,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_SetPresenterData(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_SetPresenterData_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1841,6 +1890,7 @@ void UOvrRequestsBlueprintLibrary::Cowatching_SetViewerData(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_SetViewerData_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1876,6 +1926,7 @@ void UOvrRequestsBlueprintLibrary::DeviceApplicationIntegrity_GetIntegrityToken(
     FString& StringPayload,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_DeviceApplicationIntegrity_GetIntegrityToken_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1915,6 +1966,7 @@ void UOvrRequestsBlueprintLibrary::Entitlement_GetIsViewerEntitled(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Entitlements_GetIsViewerEntitled_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1947,6 +1999,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_Clear(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_Clear_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -1979,6 +2032,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_GetInvitableUsers(
     FOvrUserPages& UserPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_GetInvitableUsers_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2016,6 +2070,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_GetSentInvites(
     FOvrApplicationInvitePages& ApplicationInvitePages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_GetSentInvites_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2055,6 +2110,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_LaunchInvitePanel(
     FOvrInvitePanelResultInfo& InvitePanelResultInfo,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchInvitePanel_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2093,6 +2149,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_LaunchMultiplayerErrorDialog(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchMultiplayerErrorDialog_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2127,6 +2184,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_LaunchRejoinDialog(
     FOvrRejoinDialogResult& RejoinDialogResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchRejoinDialog_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2165,6 +2223,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_LaunchRosterPanel(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_LaunchRosterPanel_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2197,6 +2256,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_SendInvites(
     FOvrSendInvitesResult& SendInvitesResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SendInvites_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2235,6 +2295,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_Set(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_Set_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2266,6 +2327,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_SetDeeplinkMessageOverride(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetDeeplinkMessageOverride_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2297,6 +2359,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_SetDestination(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetDestination_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2328,6 +2391,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_SetIsJoinable(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetIsJoinable_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2359,6 +2423,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_SetLobbySession(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetLobbySession_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2390,6 +2455,7 @@ void UOvrRequestsBlueprintLibrary::GroupPresence_SetMatchSession(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_SetMatchSession_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2424,6 +2490,7 @@ void UOvrRequestsBlueprintLibrary::IAP_ConsumePurchase(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_ConsumePurchase_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2456,6 +2523,7 @@ void UOvrRequestsBlueprintLibrary::IAP_GetProductsBySKU(
     FOvrProductPages& ProductPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetProductsBySKU_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2493,6 +2561,7 @@ void UOvrRequestsBlueprintLibrary::IAP_GetViewerPurchases(
     FOvrPurchasePages& PurchasePages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetViewerPurchases_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2530,6 +2599,7 @@ void UOvrRequestsBlueprintLibrary::IAP_GetViewerPurchasesDurableCache(
     FOvrPurchasePages& PurchasePages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetViewerPurchasesDurableCache_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2569,6 +2639,7 @@ void UOvrRequestsBlueprintLibrary::IAP_LaunchCheckoutFlow(
     FOvrPurchase& Purchase,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_LaunchCheckoutFlow_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2609,6 +2680,7 @@ void UOvrRequestsBlueprintLibrary::LanguagePack_GetCurrent(
     FOvrAssetDetails& AssetDetails,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_LanguagePack_GetCurrent_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2648,6 +2720,7 @@ void UOvrRequestsBlueprintLibrary::LanguagePack_SetCurrent(
     FOvrAssetFileDownloadResult& AssetFileDownloadResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_LanguagePack_SetCurrent_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2690,6 +2763,7 @@ void UOvrRequestsBlueprintLibrary::Leaderboard_Get(
     FOvrLeaderboardPages& LeaderboardPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_Get_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2732,6 +2806,7 @@ void UOvrRequestsBlueprintLibrary::Leaderboard_GetEntries(
     FOvrLeaderboardEntryPages& LeaderboardEntryPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetEntries_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2773,6 +2848,7 @@ void UOvrRequestsBlueprintLibrary::Leaderboard_GetEntriesAfterRank(
     FOvrLeaderboardEntryPages& LeaderboardEntryPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetEntriesAfterRank_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2815,6 +2891,7 @@ void UOvrRequestsBlueprintLibrary::Leaderboard_GetEntriesByIds(
     FOvrLeaderboardEntryPages& LeaderboardEntryPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetEntriesByIds_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2857,6 +2934,7 @@ void UOvrRequestsBlueprintLibrary::Leaderboard_WriteEntry(
     FOvrLeaderboardUpdateStatus& LeaderboardUpdateStatus,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_WriteEntry_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2900,6 +2978,7 @@ void UOvrRequestsBlueprintLibrary::Leaderboard_WriteEntryWithSupplementaryMetric
     FOvrLeaderboardUpdateStatus& LeaderboardUpdateStatus,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_WriteEntryWithSupplementaryMetric_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2944,6 +3023,7 @@ void UOvrRequestsBlueprintLibrary::Media_ShareToFacebook(
     FOvrShareMediaResult& ShareMediaResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Media_ShareToFacebook_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -2985,6 +3065,7 @@ void UOvrRequestsBlueprintLibrary::Notification_MarkAsRead(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Notifications_MarkAsRead_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3007,46 +3088,6 @@ void UOvrRequestsBlueprintLibrary::Notification_MarkAsRead(
 }
 
 // ----------------------------------------------------------------------
-// Party
-
-void UOvrRequestsBlueprintLibrary::Party_GetCurrent(
-    // Context
-    UObject* WorldContextObject,
-    EOvrRequestOutputPins& OutExecs,
-    FLatentActionInfo LatentInfo,
-    // Output
-    FOvrParty& Party,
-    FString& ErrorMsg)
-{
-    if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
-    {
-        OvrPlatformAddNewActionWithPreemption(
-            World,
-            LatentInfo.CallbackTarget, LatentInfo.UUID,
-            new FOvrRequestLatentAction(LatentInfo, OutExecs, ErrorMsg,
-                // Request Generator
-                []()->ovrRequest
-                {
-                    ovrRequest RequestID = ovr_Party_GetCurrent();
-
-                    return RequestID;
-                },
-                // Response Processor
-                [&Party](TOvrMessageHandlePtr MessagePtr, bool bIsError)->void
-                {
-                    if (bIsError)
-                    {
-                        Party.Clear();
-                    }
-                    else
-                    {
-                        Party.Update(ovr_Message_GetParty(*MessagePtr), MessagePtr);
-                    }
-                }));
-    }
-}
-
-// ----------------------------------------------------------------------
 // PushNotification
 
 void UOvrRequestsBlueprintLibrary::PushNotification_Register(
@@ -3058,6 +3099,7 @@ void UOvrRequestsBlueprintLibrary::PushNotification_Register(
     FOvrPushNotificationResult& PushNotificationResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_PushNotification_Register_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3097,6 +3139,7 @@ void UOvrRequestsBlueprintLibrary::RichPresence_Clear(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_Clear_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3127,6 +3170,7 @@ void UOvrRequestsBlueprintLibrary::RichPresence_GetDestinations(
     FOvrDestinationPages& DestinationPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_GetDestinations_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3165,6 +3209,7 @@ void UOvrRequestsBlueprintLibrary::RichPresence_Set(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_Set_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3200,6 +3245,7 @@ void UOvrRequestsBlueprintLibrary::User_Get(
     FOvrUser& User,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_Get_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3237,6 +3283,7 @@ void UOvrRequestsBlueprintLibrary::User_GetAccessToken(
     FString& StringPayload,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetAccessToken_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3274,6 +3321,7 @@ void UOvrRequestsBlueprintLibrary::User_GetBlockedUsers(
     FOvrBlockedUserPages& BlockedUserPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetBlockedUsers_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3313,6 +3361,7 @@ void UOvrRequestsBlueprintLibrary::User_GetLinkedAccounts(
     TArray<FOvrLinkedAccount>& LinkedAccountArray,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLinkedAccounts_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3356,6 +3405,7 @@ void UOvrRequestsBlueprintLibrary::User_GetLoggedInUser(
     FOvrUser& User,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLoggedInUser_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3393,6 +3443,7 @@ void UOvrRequestsBlueprintLibrary::User_GetLoggedInUserFriends(
     FOvrUserPages& UserPages,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLoggedInUserFriends_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3430,6 +3481,7 @@ void UOvrRequestsBlueprintLibrary::User_GetLoggedInUserManagedInfo(
     FOvrUser& User,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetLoggedInUserManagedInfo_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3469,6 +3521,7 @@ void UOvrRequestsBlueprintLibrary::User_GetOrgScopedID(
     FOvrOrgScopedID& OrgScopedID,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetOrgScopedID_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3506,6 +3559,7 @@ void UOvrRequestsBlueprintLibrary::User_GetSdkAccounts(
     TArray<FOvrSdkAccount>& SdkAccountArray,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetSdkAccounts_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3549,6 +3603,7 @@ void UOvrRequestsBlueprintLibrary::User_GetUserProof(
     FOvrUserProof& UserProof,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetUserProof_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3588,6 +3643,7 @@ void UOvrRequestsBlueprintLibrary::User_LaunchBlockFlow(
     FOvrLaunchBlockFlowResult& LaunchBlockFlowResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_LaunchBlockFlow_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3627,6 +3683,7 @@ void UOvrRequestsBlueprintLibrary::User_LaunchFriendRequestFlow(
     FOvrLaunchFriendRequestFlowResult& LaunchFriendRequestFlowResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_LaunchFriendRequestFlow_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3666,6 +3723,7 @@ void UOvrRequestsBlueprintLibrary::User_LaunchUnblockFlow(
     FOvrLaunchUnblockFlowResult& LaunchUnblockFlowResult,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_LaunchUnblockFlow_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3706,6 +3764,7 @@ void UOvrRequestsBlueprintLibrary::UserAgeCategory_Get(
     FOvrUserAccountAgeCategory& UserAccountAgeCategory,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_UserAgeCategory_Get_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3744,6 +3803,7 @@ void UOvrRequestsBlueprintLibrary::UserAgeCategory_Report(
     // Output
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_UserAgeCategory_Report_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3777,6 +3837,7 @@ void UOvrRequestsBlueprintLibrary::Voip_GetMicrophoneAvailability(
     FOvrMicrophoneAvailabilityState& MicrophoneAvailabilityState,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Voip_GetMicrophoneAvailability_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(
@@ -3816,6 +3877,7 @@ void UOvrRequestsBlueprintLibrary::Voip_SetSystemVoipSuppressed(
     FOvrSystemVoipState& SystemVoipState,
     FString& ErrorMsg)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Voip_SetSystemVoipSuppressed_BP", "", "");
     if (auto World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
     {
         OvrPlatformAddNewActionWithPreemption(

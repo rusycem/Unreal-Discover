@@ -782,7 +782,7 @@ DECLARE_DELEGATE_ThreeParams(OvrPlatform_GroupPresence_GetInvitableUsers_Delegat
 void OVRPLATFORM_API OvrPlatform_GroupPresence_GetInvitableUsers(
     /// Instance of the game
     UGameInstance* GameInstance,
-    /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the inevitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the inevitable users list.
+    /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the invitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the invitable users list.
     FOvrInviteOptions Options,
     /// Delegate to be called when the request is complete
     OvrPlatform_GroupPresence_GetInvitableUsers_Delegate&& Delegate);
@@ -807,7 +807,7 @@ DECLARE_DELEGATE_ThreeParams(OvrPlatform_GroupPresence_LaunchInvitePanel_Delegat
 void OVRPLATFORM_API OvrPlatform_GroupPresence_LaunchInvitePanel(
     /// Instance of the game
     UGameInstance* GameInstance,
-    /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the inevitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the inevitable users list.
+    /// It contains two methods. 1. {{options.invite.suggested_users}} - Takes the userID as a parameter and adds it to the invitable users list. 2. {{options_clear.invite.suggested_users}} - Clears the invitable users list.
     FOvrInviteOptions Options,
     /// Delegate to be called when the request is complete
     OvrPlatform_GroupPresence_LaunchInvitePanel_Delegate&& Delegate);
@@ -856,7 +856,7 @@ DECLARE_DELEGATE_TwoParams(OvrPlatform_GroupPresence_LaunchRosterPanel_Delegate,
 void OVRPLATFORM_API OvrPlatform_GroupPresence_LaunchRosterPanel(
     /// Instance of the game
     UGameInstance* GameInstance,
-    /// It contains 2 methods. 1. {{options.roster.suggested_users}} - it takes userID as a parameter and adds it to the inevitable users list. 2. {{options_clear.roster.suggested_users}} - it clears the inevitable users list.
+    /// It contains 2 methods. 1. {{options.roster.suggested_users}} - it takes userID as a parameter and adds it to the invitable users list. 2. {{options_clear.roster.suggested_users}} - it clears the invitable users list.
     FOvrRosterOptions Options,
     /// Delegate to be called when the request is complete
     OvrPlatform_GroupPresence_LaunchRosterPanel_Delegate&& Delegate);
@@ -1259,19 +1259,6 @@ void OVRPLATFORM_API OvrPlatform_Notification_MarkAsRead(
     OvrPlatform_Notification_MarkAsRead_Delegate&& Delegate);
 
 // ----------------------------------------------------------------------
-// Party
-
-typedef TSharedPtr<FOvrParty> FOvrPartyPtr;
-DECLARE_DELEGATE_ThreeParams(OvrPlatform_Party_GetCurrent_Delegate, bool, FOvrPartyPtr, FString);
-
-/** Load the current party the current FOvrUser is in. The returned FOvrParty will then contain information about other users in the party and invited users. If the user is not currently in a party, the request will return an error message with code 10. */
-void OVRPLATFORM_API OvrPlatform_Party_GetCurrent(
-    /// Instance of the game
-    UGameInstance* GameInstance,
-    /// Delegate to be called when the request is complete
-    OvrPlatform_Party_GetCurrent_Delegate&& Delegate);
-
-// ----------------------------------------------------------------------
 // PushNotification
 
 typedef TSharedPtr<FOvrPushNotificationResult> FOvrPushNotificationResultPtr;
@@ -1365,7 +1352,7 @@ DECLARE_DELEGATE_ThreeParams(OvrPlatform_User_GetLinkedAccounts_Delegate, bool, 
 /**
  * Returns a list of linked accounts that are associated with the specified service providers.
  * 
- * Customization can be done via UserOptions. Create this object withFOvrUserOptions.
+ * Customization can be done via UserOptions. Create this object with FOvrUserOptions.
  * The params that could be used are:
  * 
  * 1. FOvrUserOptions::ServiceProviders.Emplace() - returns the list of linked accounts
@@ -1393,11 +1380,13 @@ typedef TSharedPtr<FOvrUser> FOvrUserPtr;
 DECLARE_DELEGATE_ThreeParams(OvrPlatform_User_GetLoggedInUser_Delegate, bool, FOvrUserPtr, FString);
 
 /**
- * Retrieve the currently signed in user.  This call is available offline.
+ * Retrieve the currently signed in user. This call is available offline.
  * 
  * 
- * NOTE: This will not return the user's presence as it should always be 'online'
- * in your application.
+ * NOTE: Please be aware that this function will only return the following information about the user:
+ * Alias (Oculus ID), ID (App Scoped ID), Profile URL (image_url).
+ * If you need to retrieve additional user information, such as presence details, please use the App Scoped ID obtained
+ * from Users.GetLoggedInUser() in conjunction with Users.Get(ulong UserID). This will provide access to more comprehensive user data.
  * 
  * 
  * NOTE: Users will have a unique ID per application.

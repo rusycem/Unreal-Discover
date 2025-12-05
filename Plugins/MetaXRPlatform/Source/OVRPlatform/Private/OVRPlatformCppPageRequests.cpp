@@ -5,6 +5,7 @@
 #include "OVRPlatformCppPageRequests.h"
 #include "OVRPlatformRequestsConverters.h"
 #include "OVRPlatformOptionsConverters.h"
+#include "OVRPlatformEngineTelemetry.h"
 
 #include "OVRPlatformSubsystem.h"
 #include "Engine/GameInstance.h"
@@ -37,6 +38,7 @@ bool OvrPlatform_AchievementDefinitionPages_FetchNextPage(
     const FOvrAchievementDefinitionPages& AchievementDefinitionPages,
     OvrPlatform_AchievementDefinitionPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetNextAchievementDefinitionListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -95,6 +97,7 @@ bool OvrPlatform_AchievementProgressPages_FetchNextPage(
     const FOvrAchievementProgressPages& AchievementProgressPages,
     OvrPlatform_AchievementProgressPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Achievements_GetNextAchievementProgressListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -153,6 +156,7 @@ bool OvrPlatform_ApplicationInvitePages_FetchNextPage(
     const FOvrApplicationInvitePages& ApplicationInvitePages,
     OvrPlatform_ApplicationInvitePage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_GroupPresence_GetNextApplicationInviteListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -211,6 +215,7 @@ bool OvrPlatform_BlockedUserPages_FetchNextPage(
     const FOvrBlockedUserPages& BlockedUserPages,
     OvrPlatform_BlockedUserPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetNextBlockedUserListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -275,6 +280,7 @@ bool OvrPlatform_ChallengePages_FetchNextPage(
     const FOvrChallengePages& ChallengePages,
     OvrPlatform_ChallengePage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetNextChallengeListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -310,6 +316,7 @@ bool OvrPlatform_ChallengePages_FetchPreviousPage(
     const FOvrChallengePages& ChallengePages,
     OvrPlatform_ChallengePage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetPreviousChallenge", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -374,6 +381,7 @@ bool OvrPlatform_ChallengeEntryPages_FetchNextPage(
     const FOvrChallengeEntryPages& ChallengeEntryPages,
     OvrPlatform_ChallengeEntryPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetNextChallengeEntryListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -409,6 +417,7 @@ bool OvrPlatform_ChallengeEntryPages_FetchPreviousPage(
     const FOvrChallengeEntryPages& ChallengeEntryPages,
     OvrPlatform_ChallengeEntryPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Challenges_GetPreviousChallengeEntry", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -467,6 +476,7 @@ bool OvrPlatform_CowatchViewerPages_FetchNextPage(
     const FOvrCowatchViewerPages& CowatchViewerPages,
     OvrPlatform_CowatchViewerPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Cowatching_GetNextCowatchViewerListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -525,6 +535,7 @@ bool OvrPlatform_DestinationPages_FetchNextPage(
     const FOvrDestinationPages& DestinationPages,
     OvrPlatform_DestinationPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_RichPresence_GetNextDestinationListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -583,6 +594,7 @@ bool OvrPlatform_LeaderboardPages_FetchNextPage(
     const FOvrLeaderboardPages& LeaderboardPages,
     OvrPlatform_LeaderboardPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetNextLeaderboardListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -647,6 +659,7 @@ bool OvrPlatform_LeaderboardEntryPages_FetchNextPage(
     const FOvrLeaderboardEntryPages& LeaderboardEntryPages,
     OvrPlatform_LeaderboardEntryPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetNextLeaderboardEntryListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -682,6 +695,7 @@ bool OvrPlatform_LeaderboardEntryPages_FetchPreviousPage(
     const FOvrLeaderboardEntryPages& LeaderboardEntryPages,
     OvrPlatform_LeaderboardEntryPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Leaderboards_GetPreviousLeaderboardEntry", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -740,6 +754,7 @@ bool OvrPlatform_ProductPages_FetchNextPage(
     const FOvrProductPages& ProductPages,
     OvrPlatform_ProductPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetNextProductListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -798,6 +813,7 @@ bool OvrPlatform_PurchasePages_FetchNextPage(
     const FOvrPurchasePages& PurchasePages,
     OvrPlatform_PurchasePage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_IAP_GetNextPurchaseListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -856,6 +872,7 @@ bool OvrPlatform_UserPages_FetchNextPage(
     const FOvrUserPages& UserPages,
     OvrPlatform_UserPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetNextUserListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(
@@ -914,6 +931,7 @@ bool OvrPlatform_UserCapabilityPages_FetchNextPage(
     const FOvrUserCapabilityPages& UserCapabilityPages,
     OvrPlatform_UserCapabilityPage_Delegate&& Delegate)
 {
+    FOVRPlatformEngineTelemetryModule::SendUnifiedEvent(1, "platform_sdk", "PSDK_Users_GetNextUserCapabilityListPage", "", "");
     if (UOvrPlatformSubsystem* OvrPlatform = GameInstance->GetSubsystem<UOvrPlatformSubsystem>())
     {
         OvrPlatform->AddRequestDelegate(

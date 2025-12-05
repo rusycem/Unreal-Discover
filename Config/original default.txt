@@ -1,7 +1,7 @@
 [OnlineSubsystemOculus]
-bEnabled=true
-MobileAppId=32736634595983774
-RiftAppId=25190119847264393
+bEnabled=False
+MobileAppId=
+RiftAppId=
 
 [/Script/Engine.RendererSettings]
 r.Mobile.DisableVertexFog=True
@@ -471,7 +471,7 @@ ManualIPAddress=
 bEnabled=true
 
 [OnlineSubsystem]
-DefaultPlatformService=Oculus
+DefaultPlatformService=EOS
 bHasVoiceEnabled=true
 
 [/Script/Engine.GameEngine]

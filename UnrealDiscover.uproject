@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "",
+	"EngineAssociation": "{9C589ED4-461B-43C3-7359-B487D9E7B1B0}",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -38,7 +38,8 @@
 			"SupportedTargetPlatforms": [
 				"Win64",
 				"Android"
-			]
+			],
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/7ce814580ba341b4bb5865983fea9d31"
 		},
 		{
 			"Name": "OnlineSubsystemEOS",
@@ -79,6 +80,14 @@
 		{
 			"Name": "OnlineSubsystemOculus",
 			"Enabled": false
+		},
+		{
+			"Name": "OnlineServicesEOSGS",
+			"Enabled": true
+		},
+		{
+			"Name": "OnlineServicesEOS",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
