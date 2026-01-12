@@ -39,7 +39,7 @@ In this project you can see how we use Scene API, Interaction SDK, Passthrough, 
 
 ## Dependencies
 
-This project requires the Oculus fork of the UE5.5 game engine that you can find [here](https://github.com/Oculus-VR/UnrealEngine/tree/oculus-5.5).<br/>*NOTE:* access to the Oculus fork requires [access to Epic's GitHub](https://www.unrealengine.com/en-US/ue-on-github).
+This project requires the Oculus fork of the UE5.6 game engine that you can find [here](https://github.com/Oculus-VR/UnrealEngine/tree/oculus-5.5).<br/>*NOTE:* access to the Oculus fork requires [access to Epic's GitHub](https://www.unrealengine.com/en-US/ue-on-github).
 
 The following is required to test this project within Unreal Engine:
 
@@ -47,7 +47,7 @@ The following is required to test this project within Unreal Engine:
 
 ### Required minimal version
 
-This version requires the minimum version of the Meta XR Plugin to be 1.109.0 (Version 77.0)
+This version requires the minimum version of the Meta XR Plugin to be Version 83.0
 
 ### Oculus Unreal fork
 
