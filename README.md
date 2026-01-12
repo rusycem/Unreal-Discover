@@ -23,7 +23,7 @@ In this project you can see how we use Scene API, Interaction SDK, Passthrough, 
 **NOTE:** This project can only be used with the Meta Quest fork of Unreal Engine. See <a href="#Dependencies">Dependencies</a> for more information.
 
 1. [Configure the project](./Documentation/Configuration.md) with Meta Quest and EOS
-2. Make sure you're using  *Unreal Engine 5.5* or newer.
+2. Make sure you're using  *Unreal Engine 5.6* or newer.
 3. Load the MainMenuMap level.
 4. To test in Editor you will need to use Quest Link:
     <details>
