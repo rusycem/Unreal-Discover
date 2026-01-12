@@ -39,7 +39,7 @@ In this project you can see how we use Scene API, Interaction SDK, Passthrough, 
 
 ## Dependencies
 
-This project requires the Oculus fork of the UE5.6 game engine that you can find [here](https://github.com/Oculus-VR/UnrealEngine/tree/oculus-5.5).<br/>*NOTE:* access to the Oculus fork requires [access to Epic's GitHub](https://www.unrealengine.com/en-US/ue-on-github).
+This project requires the Oculus fork of the UE5.6 game engine that you can find [here](https://github.com/Oculus-VR/UnrealEngine/tree/oculus-5.6).<br/>*NOTE:* access to the Oculus fork requires [access to Epic's GitHub](https://www.unrealengine.com/en-US/ue-on-github).
 
 The following is required to test this project within Unreal Engine:
 
@@ -54,7 +54,7 @@ This version requires the minimum version of the Meta XR Plugin to be Version 83
 The Oculus Unreal fork will give you the most up to date integration of Oculus features. However, you must build the editor from its source.
 
 1. [Get access to the Unreal source code](https://developer.oculus.com/documentation/unreal/unreal-building-ue4-from-source/#prerequisites)
-2. [Clone the `oculus-5.5` branch of the Oculus fork](https://github.com/Oculus-VR/UnrealEngine/tree/oculus-5.5)
+2. [Clone the `oculus-5.6` branch of the Oculus fork](https://github.com/Oculus-VR/UnrealEngine/tree/oculus-5.6)
 3. [Install Visual Studio](https://developer.oculus.com/documentation/unreal/unreal-building-ue4-from-source/#to-download-and-build-unreal-engine)
 4. Open a command prompt in the root of the Unreal, then run this command:
 ```sh
